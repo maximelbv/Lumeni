@@ -1,0 +1,215 @@
+$dark: #292929;
+$light: #ffffff;
+$blue: #4eb9e1;
+
+$fontSizeXS: 1rem;
+$fontSizeS: 1.125rem;
+$fontSizeM: 1.875rem;
+$fontSizeL: 2.5rem;
+$fontSizeXL: 3.125rem;
+
+::-webkit-scrollbar {
+    height: 0px;
+    background: rgb(94, 94, 94);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #898989;
+    // border-radius: 5px;
+}
+
+
+@font-face {
+    font-family: poppinsThin;
+    src: url(/media/fonts/poppins/Poppins-Thin.otf);
+}
+
+@font-face {
+    font-family: poppins;
+    src: url(/media/fonts/poppins/Poppins-Regular.otf);
+}
+
+@font-face {
+    font-family: poppinsBold;
+    src: url(/media/fonts/poppins/Poppins-Bold.otf);
+}
+
+@mixin flexCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin whiteBorder {
+    border: .15rem solid $light;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-decoration: none;
+    font-family: poppins;
+    color: white;
+}
+
+.body {
+    background: $dark;
+    margin: auto;
+    // max-width: 1920px;
+}
+
+.header {
+    z-index: 1;
+    background: $dark;
+    position: fixed;
+    width: calc(100vw - 10.3rem);
+    height: 6.25rem;
+    @include flexCenter;
+    @include whiteBorder;
+    justify-content: space-between;
+    padding: 0 5rem;
+
+    &Logo {
+        &Title {
+            font-family: poppinsBold;
+            letter-spacing: -0.125rem;
+            font-size: $fontSizeL;
+            font-weight: 00;
+        }
+    }
+
+    &Links {
+        @include flexCenter;
+        justify-content: space-around;
+        width: 25rem;
+        font-size: $fontSizeS;
+    }
+
+}
+
+.heroCtn {
+    @include flexCenter;
+    @include whiteBorder;
+    max-width: calc(100vw - .3rem);
+    border-top: none;
+    padding-top: calc(10vh + .3rem);
+    height: 60vh;
+    // padding-left: 15vw;
+    background: url('/media/img/Web\ 1920\ –\ 16.png');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .heroLogo {
+        width: 21.25rem;
+        margin-right: 2.75rem;
+    }
+
+    .heroTxt {  
+        z-index: 0;
+        position: relative;  
+        margin-left: 2.75rem;    
+        &::before {
+            content: " ";
+            position: absolute;
+            left: -2.75rem;
+            height: 100%;
+            width: 0.313rem;
+            background: $light;
+        }
+        &Title {font-size: $fontSizeXL;}
+        &Subtitle {
+            font-size: $fontSizeM;
+            // max-width: 80%;
+        }
+    }
+}
+
+// .snapsInline {
+//     scroll-snap-type: inline mandatory;
+// }
+// .snapsInline > * {
+//     scroll-snap-align: start;
+// }
+.showcaseCtn {
+    position: relative;
+    display: flex;
+    height: calc(100vh - 6.25rem);
+    width: auto;
+    overflow-x: auto;
+    overflow: visible;
+    .showcaseHeader {
+        @include flexCenter;
+        background: $dark;
+        flex-direction: column;
+        justify-content: space-around;
+        @include whiteBorder;
+        border-top: none;
+        min-width: 37vw;
+        max-width: 37vw;
+        &Title {
+            margin: 2.5rem 3.75rem;
+            font-size: $fontSizeXL;
+            font-weight: lighter;
+            & span {color: $blue;}
+        }
+        &Txt {
+            margin: 2.5rem 3.75rem;
+            font-size: $fontSizeS;
+            letter-spacing: 1px;
+            line-height: 50px;
+        }
+        & img {width: 14.563rem;}
+    }
+    .portfolioGrid {
+        margin: 2rem;
+        display: grid;
+        grid-auto-flow: column;
+        grid-template-rows: repeat(2, 1fr);
+        gap: 2rem;
+        .card {
+            @include flexCenter;
+            font-size: 50px;
+            background: $blue;
+            height: 100%;
+            // &Title {
+            //     font-size: $fontSizeL;
+            // }
+            // &SubTitle {
+            //     font-size: $fontSizeS
+            // }
+        }
+    }
+}
+
+.processCtn {
+    margin: 1rem 0;
+    @include flexCenter;
+    flex-direction: column;
+    h3 {
+        font-size: 2.188rem;
+        margin: 1rem;
+    }
+    .processSteps {
+        width: 46.875rem;
+        li {
+            display: flex;
+            margin: 2.5rem;
+            .illu {
+                margin-right: 1.25rem;
+            }
+            .txt {
+                &Title {font-size: $fontSizeM;}
+                &SubTitle {font-size: $fontSizeS;}
+            }
+        }
+    }
+    .devisBtn {
+        padding: 1rem 2rem;
+        background: $blue;
+        border-radius: 50px;
+        margin: 2rem;
+    }
+}
